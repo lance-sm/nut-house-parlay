@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/detail.css">
   <link rel="stylesheet" href="css/builder.css">
+  <link rel="stylesheet" href="css/scout.css">
 </head>
 <body>
   <header class="band">
@@ -38,16 +39,23 @@
         <div class="meter" id="meter" aria-hidden="true"></div>
         <div class="money" id="money" hidden></div>
       </div>
+      <div class="tabs" role="tablist" aria-label="Views">
+        <button class="tab" id="tab-ticket" type="button" role="tab" aria-selected="true" aria-controls="ticket-view" data-tab="ticket">Ticket</button>
+        <button class="tab" id="tab-scout" type="button" role="tab" aria-selected="false" aria-controls="scout-view" data-tab="scout">Scouting</button>
+      </div>
     </div>
   </header>
 
   <main class="wrap">
     <div id="banner"></div>
-    <ol class="legs" id="legs" aria-label="Parlay legs"></ol>
-    <div class="foot">
-      <span id="updated">Connecting to ESPN…</span>
-      <span>Scores: ESPN · times shown in your time zone</span>
+    <div id="ticket-view" role="tabpanel" aria-labelledby="tab-ticket">
+      <ol class="legs" id="legs" aria-label="Parlay legs"></ol>
+      <div class="foot">
+        <span id="updated">Connecting to ESPN…</span>
+        <span>Scores: ESPN · times shown in your time zone</span>
+      </div>
     </div>
+    <section id="scout-view" role="tabpanel" aria-labelledby="tab-scout" hidden></section>
   </main>
 
   <script type="module" src="js/app.js"></script>

@@ -161,6 +161,15 @@ img { max-width: 100%; }
 .meter span.even { background: var(--gold); }
 .meter span.push, .meter span.void { background: rgba(255,255,255,.45); }
 
+.tabs { display: flex; gap: 4px; margin-top: 18px; margin-bottom: -22px; /* sit on the gold stripe */ }
+.tab {
+  position: relative; z-index: 1; min-height: 44px; padding: 0 18px; border: 0; border-radius: 8px 8px 0 0;
+  background: rgba(255,255,255,.07); color: var(--green-ink);
+  font: 600 .95rem/1 var(--f-cond); letter-spacing: .1em; text-transform: uppercase;
+}
+.tab:hover { background: rgba(255,255,255,.13); }
+.tab[aria-selected="true"] { background: var(--gold); color: #1c1503; }
+
 .money { display: flex; gap: 18px; flex-wrap: wrap; font: 500 .95rem/1.2 var(--f-cond); letter-spacing: .03em; }
 .money b { font-weight: 700; color: var(--gold); }
 

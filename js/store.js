@@ -31,6 +31,17 @@ export async function loadSeasonLog() {
   }
 }
 
+// Season snapshot of every finished FBS game with closing lines and FPI projection,
+// built by scripts/build_season.py. Null when it hasn't been generated yet.
+export async function loadSeasonData(year) {
+  try {
+    const res = await fetch(`data/season-${year}.json`, { cache: "no-cache" });
+    return res.ok ? await res.json() : null;
+  } catch {
+    return null;
+  }
+}
+
 export function localParlays() {
   return readLS(LOCAL_KEY, []).map((p) => ({ ...p, source: "local" }));
 }

@@ -18,6 +18,7 @@ const state = {
   timer: null,
   sheet: null,          // { el, handle, kind }
   sheetViaNav: false,   // true when the open sheet came from an in-site tap (so Back can pop it)
+  scout: null,          // mounted Scouting tab, created on first visit
 };
 
 // ---------- data ----------
@@ -227,7 +228,32 @@ function selectParlay(id) {
   if (p) setCurrentId(p.id);
   render();
   refresh();
+  state.scout?.update({ parlays: state.parlays, currentParlay: state.current });
 }
+
+// ---------- tabs ----------
+
+const TAB_KEY = "nh.tab.v1";
+
+async function showTab(tab) {
+  for (const btn of document.querySelectorAll(".tab")) btn.setAttribute("aria-selected", String(btn.dataset.tab === tab));
+  $("ticket-view").hidden = tab !== "ticket";
+  $("scout-view").hidden = tab !== "scout";
+  try { localStorage.setItem(TAB_KEY, tab); } catch { /* fine */ }
+  if (tab !== "scout" || state.scout) return;
+  try {
+    const { mountScout } = await import("./scout.js");
+    state.scout = mountScout($("scout-view"), {
+      parlays: state.parlays,
+      currentParlay: state.current,
+      onOpenGame: (eventId) => { location.hash = `g=${encodeURIComponent(eventId)}`; },
+    });
+  } catch (err) {
+    $("scout-view").innerHTML = `<p class="banner error">Couldn't load scouting: ${escapeHTML(err.message)}</p>`;
+  }
+}
+
+for (const btn of document.querySelectorAll(".tab")) btn.addEventListener("click", () => showTab(btn.dataset.tab));
 
 $("week-select").addEventListener("change", (e) => {
   banner("");
@@ -374,6 +400,13 @@ async function boot() {
   const want = incoming?.id || getCurrentId();
   selectParlay(state.parlays.some((p) => p.id === want) ? want : state.parlays[0]?.id);
   if (incoming) announceShared(incoming);
+  let tab = "ticket";
+  try { tab = localStorage.getItem(TAB_KEY) === "scout" ? "scout" : "ticket"; } catch { /* fine */ }
+  if (location.hash === "#scout") {
+    tab = "scout";
+    history.replaceState(null, "", location.pathname + location.search);
+  }
+  showTab(tab);
   state.sheetViaNav = false;
   route();
 }

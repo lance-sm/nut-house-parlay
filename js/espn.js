@@ -30,7 +30,7 @@ export async function fetchScoreboardDay(dateKey) {
 export async function fetchWeekSlate({ week, seasonType = 2, year } = {}) {
   const params = new URLSearchParams({ groups: "80", limit: "400" });
   if (week) { params.set("week", week); params.set("seasontype", seasonType); }
-  if (year) params.set("year", year);
+  if (year) params.set("dates", year);  // ESPN ignores year=; dates=YYYY picks the season
   const data = await getJSON(`${BASE}/scoreboard?${params}`);
   return {
     week: data.week?.number ?? week ?? null,
@@ -78,19 +78,55 @@ function teamFrom(c) {
   };
 }
 
+// "o54.5" / "u54.5" / "+1.5" / "-7" / "PK" -> number
+function lineNum(v) {
+  if (v === undefined || v === null) return null;
+  const s = String(v).trim().replace(/^[ou]/i, "");
+  if (/^pk$/i.test(s) || /^even$/i.test(s)) return 0;
+  return num(s);
+}
+
 function oddsFrom(o, home, away) {
   if (!o) return null;
   const ml = o.moneyline || {};
+  const ps = o.pointSpread || {};
+  const tot = o.total || {};
   return {
     provider: o.provider?.displayName || o.provider?.name || null,
     details: o.details || null,                 // e.g. "KU -1.5"
     spread: num(o.spread),                      // from the HOME team's perspective
+    spreadOpen: lineNum(ps.home?.open?.line),   // HOME perspective at open; null when ESPN has none
+    homeSpreadOdds: num(ps.home?.close?.odds),
+    awaySpreadOdds: num(ps.away?.close?.odds),
     overUnder: num(o.overUnder),
+    totalOpen: lineNum(tot.over?.open?.line),
+    overOdds: num(tot.over?.close?.odds),
+    underOdds: num(tot.under?.close?.odds),
     homeML: num(ml.home?.close?.odds ?? o.homeTeamOdds?.moneyLine),
     awayML: num(ml.away?.close?.odds ?? o.awayTeamOdds?.moneyLine),
     homeId: home.id,
     awayId: away.id,
   };
+}
+
+// ESPN FPI matchup projection. Persists after the game, so past weeks can be graded too.
+// Returns { homeMargin, homeWin, awayWin } (margin in points from the home side; win as 0-1) or null.
+const CORE = "https://sports.core.api.espn.com/v2/sports/football/leagues/college-football";
+export async function fetchPredictor(eventId) {
+  try {
+    const d = await getJSON(`${CORE}/events/${eventId}/competitions/${eventId}/predictor?lang=en&region=us`);
+    const stat = (side, name) => num(d[side]?.statistics?.find((s) => s.name === name)?.value);
+    const homeMargin = stat("homeTeam", "teamPredPtDiff");
+    const homeWin = stat("homeTeam", "gameProjection");
+    if (homeMargin === null && homeWin === null) return null;
+    return {
+      homeMargin,
+      homeWin: homeWin === null ? null : homeWin / 100,
+      awayWin: homeWin === null ? null : 1 - homeWin / 100 - (stat("homeTeam", "teamChanceTie") || 0) / 100,
+    };
+  } catch {
+    return null;
+  }
 }
 
 function situationFrom(s) {
