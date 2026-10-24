@@ -1,0 +1,47 @@
+name: Season data
+
+# Rebuilds data/season-<year>.json (finished games + closing lines + FPI) for the
+# Scouting tab and commits it only when it changed. The push re-triggers the
+# branch-based Pages build, so there is no deploy step here.
+on:
+  schedule:
+    - cron: "0 10 * * 1-5"    # daily at 10:00 UTC (Sat/Sun 10:00 is covered below)
+    - cron: "0 */2 * * 6,0"   # every 2 hours on Saturdays and Sundays (UTC)
+  workflow_dispatch:
+    inputs:
+      full:
+        description: "Refetch every game instead of only new ones"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: season-data
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}   # branch tip, so a queued run sees the previous run's commit
+
+      - name: Build season file
+        run: python3 scripts/build_season.py ${{ inputs.full && '--full' || '' }}
+
+      - name: Commit if changed
+        run: |
+          git add data/season-*.json
+          if git diff --cached --quiet; then
+            echo "Season data unchanged; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update season data ($(date -u +%Y-%m-%d))"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
