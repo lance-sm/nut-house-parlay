@@ -2,7 +2,7 @@ import { fetchScoreboardDay, fetchSummary, etDateKey, kickoffText, logoHTML, esc
 import { gradeLeg, gradeParlay, legLabel, fmtOdds, parlayPrice, decimalToAmerican } from "./grade.js";
 import {
   loadSeasonLog, localParlays, saveLocal, mergeParlays, getCurrentId, setCurrentId,
-  cachedResults, cacheResult, decodeParlay, shareURL,
+  cachedResults, cacheResult, decodeParlay, shareURL, loadSeasonData,
 } from "./store.js";
 
 const LIVE_MS = 20_000;
@@ -393,6 +393,27 @@ document.addEventListener("click", (e) => {
 
 // ---------- boot ----------
 
+// Settle past tickets from the season file so the record shows without opening every week.
+async function settleFromSeason() {
+  const years = [...new Set(state.parlays.map((p) => (p.date || "").slice(0, 4)).filter(Boolean))];
+  const games = new Map();
+  for (const year of years) {
+    const season = await loadSeasonData(year);
+    for (const g of season?.games || []) {
+      games.set(g.id, {
+        id: g.id, state: "post", completed: true, statusName: "STATUS_FINAL", detail: "Final",
+        home: { id: g.h, score: g.hs }, away: { id: g.a, score: g.as },
+      });
+    }
+  }
+  if (!games.size) return;
+  for (const p of state.parlays) {
+    const { status } = gradeParlay(p.legs, games);
+    if (status === "cashed" || status === "busted" || status === "push") cacheResult(p.id, status);
+  }
+  renderWeekSelect();
+}
+
 async function boot() {
   const incoming = takeSharedLink();
   const log = await loadSeasonLog();
@@ -409,6 +430,7 @@ async function boot() {
   showTab(tab);
   state.sheetViaNav = false;
   route();
+  settleFromSeason();
 }
 
 boot();
