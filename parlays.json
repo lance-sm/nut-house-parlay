@@ -1,0 +1,20 @@
+{
+  "season": 2026,
+  "parlays": [
+    {
+      "id": "2026-w8",
+      "name": "Week 8",
+      "date": "2026-10-24",
+      "stake": null,
+      "payout": null,
+      "legs": [
+        { "e": "401856834", "t": "ml", "s": "239", "l": null, "o": null, "n": "Baylor", "g": "BAY @ KU", "k": "2026-10-24T17:00Z" },
+        { "e": "401864527", "t": "ml", "s": "167", "l": null, "o": null, "n": "New Mexico", "g": "NDSU @ UNM", "k": "2026-10-25T02:00Z" },
+        { "e": "401856835", "t": "spread", "s": "252", "l": -7, "o": null, "n": "BYU", "g": "BYU @ UCF", "k": "2026-10-24T19:30Z" },
+        { "e": "401856731", "t": "spread", "s": "2633", "l": 2.5, "o": null, "n": "Tennessee", "g": "TENN @ SC", "k": "2026-10-24T19:30Z" },
+        { "e": "401862810", "t": "spread", "s": "249", "l": -3, "o": null, "n": "North Texas", "g": "UNT @ NAVY", "k": "2026-10-24T19:30Z" },
+        { "e": "401856837", "t": "spread", "s": "248", "l": 6.5, "o": null, "n": "Houston", "g": "HOU @ UTAH", "k": "2026-10-25T02:15Z" }
+      ]
+    }
+  ]
+}

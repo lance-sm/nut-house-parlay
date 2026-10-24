@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Nut House Bozo Parlay</title>
+  <meta name="description" content="Live scores and leg-by-leg status for the Nut House weekly bozo parlay.">
+  <meta name="theme-color" content="#154734">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23154734'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' font-weight='700' text-anchor='middle' fill='%23ffb81c'%3ENH%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=Graduate&display=swap">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/detail.css">
+  <link rel="stylesheet" href="css/builder.css">
+</head>
+<body>
+  <header class="band">
+    <div class="wrap">
+      <div class="masthead">
+        <h1 class="wordmark"><small>The Bozo Parlay</small>Nut House</h1>
+        <div class="band-actions">
+          <button class="btn" id="share-btn" type="button" hidden>Share</button>
+          <button class="btn" id="edit-btn" type="button" hidden>Edit</button>
+          <button class="btn gold" id="new-btn" type="button">New parlay</button>
+        </div>
+      </div>
+      <div class="ticket-head" id="ticket-head">
+        <div class="verdict">
+          <label class="sr-only" for="week-select">Week</label>
+          <select class="week-select" id="week-select" aria-label="Choose a week"></select>
+          <span class="verdict-line" id="season-record"></span>
+        </div>
+        <div class="verdict">
+          <span class="verdict-word" id="verdict-word">Loading…</span>
+          <span class="verdict-line" id="verdict-line"></span>
+        </div>
+        <div class="meter" id="meter" aria-hidden="true"></div>
+        <div class="money" id="money" hidden></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div id="banner"></div>
+    <ol class="legs" id="legs" aria-label="Parlay legs"></ol>
+    <div class="foot">
+      <span id="updated">Connecting to ESPN…</span>
+      <span>Scores: ESPN · times shown in your time zone</span>
+    </div>
+  </main>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
