@@ -1,7 +1,7 @@
 import { fetchScoreboardDay, fetchSummary, etDateKey, kickoffText, logoHTML, escapeHTML } from "./espn.js";
 import { gradeLeg, gradeParlay, legLabel, fmtOdds, parlayPrice, decimalToAmerican } from "./grade.js";
 import {
-  loadSeasonLog, localParlays, saveLocal, mergeParlays, getCurrentId, setCurrentId,
+  loadSeasonLog, localParlays, saveLocal, mergeParlays, setCurrentId,
   cachedResults, cacheResult, decodeParlay, shareURL, loadSeasonData,
 } from "./store.js";
 
@@ -418,8 +418,10 @@ async function boot() {
   const incoming = takeSharedLink();
   const log = await loadSeasonLog();
   state.parlays = mergeParlays(log, localParlays());
-  const want = incoming?.id || getCurrentId();
-  selectParlay(state.parlays.some((p) => p.id === want) ? want : state.parlays[0]?.id);
+  // Always open on the newest week (the list is sorted newest first); a shared link wins.
+  // Older weeks stay one tap away in the week picker. The last-viewed week is no longer
+  // restored, so phones that were left on last week land on this week's ticket.
+  selectParlay(incoming?.id || state.parlays[0]?.id);
   if (incoming) announceShared(incoming);
   let tab = "ticket";
   try { tab = localStorage.getItem(TAB_KEY) === "scout" ? "scout" : "ticket"; } catch { /* fine */ }
