@@ -3,8 +3,8 @@
 // parlays.json carries  crew: [{ id, name, photo }]  and each leg can carry  by: "<crew id>".
 // Records are never stored; like the ticket they are regraded from ESPN finals every load.
 
-import { gradeLeg, legLabel } from "./grade.js?v=20261112b";
-import { escapeHTML as esc } from "./espn.js?v=20261112b";
+import { gradeLeg, legLabel } from "./grade.js?v=20261112c";
+import { escapeHTML as esc } from "./espn.js?v=20261112c";
 
 export function crewMap(crew) {
   return new Map((crew || []).map((c) => [String(c.id), c]));
@@ -100,8 +100,8 @@ export function mountCrew(root, { parlays = [], crew = [], resolveGame }) {
 
   function render() {
     if (!crew.length) {
-      root.innerHTML = `<div class="card empty"><h2>No crew yet</h2>
-        <p>Add the house to <code>parlays.json</code> under <code>crew</code>, then tag each leg with who picked it.</p></div>`;
+      root.innerHTML = `<div class="card empty"><h2>No team yet</h2>
+        <p>Add the team to <code>parlays.json</code> under <code>crew</code>, then tag each leg with who picked it.</p></div>`;
       return;
     }
     const { list, unassigned } = crewRecords(parlays, crew, resolveGame);

@@ -1,10 +1,10 @@
-import { fetchScoreboardDay, fetchSummary, etDateKey, kickoffText, logoHTML, escapeHTML } from "./espn.js?v=20261112b";
-import { gradeLeg, gradeParlay, legLabel, fmtOdds, parlayPrice, decimalToAmerican } from "./grade.js?v=20261112b";
+import { fetchScoreboardDay, fetchSummary, etDateKey, kickoffText, logoHTML, escapeHTML } from "./espn.js?v=20261112c";
+import { gradeLeg, gradeParlay, legLabel, fmtOdds, parlayPrice, decimalToAmerican } from "./grade.js?v=20261112c";
 import {
   loadSeasonLog, localParlays, saveLocal, mergeParlays, setCurrentId,
   cachedResults, cacheResult, decodeParlay, shareURL, loadSeasonData, getCrew,
-} from "./store.js?v=20261112b";
-import { crewMap, avatarHTML, mountCrew } from "./crew.js?v=20261112b";
+} from "./store.js?v=20261112c";
+import { crewMap, avatarHTML, mountCrew } from "./crew.js?v=20261112c";
 
 const LIVE_MS = 20_000;
 const IDLE_MS = 60_000;
@@ -260,7 +260,7 @@ async function showTab(tab) {
   }
   if (tab !== "scout" || state.scout) return;
   try {
-    const { mountScout } = await import("./scout.js?v=20261112b");
+    const { mountScout } = await import("./scout.js?v=20261112c");
     state.scout = mountScout($("scout-view"), {
       parlays: state.parlays,
       currentParlay: state.current,
@@ -314,7 +314,7 @@ async function openDetail(eventId) {
   const el = openSheet("detail");
   const legs = state.current?.legs.filter((l) => String(l.e) === String(eventId)) || [];
   try {
-    const { mountDetail } = await import("./detail.js?v=20261112b");
+    const { mountDetail } = await import("./detail.js?v=20261112c");
     if (state.sheet?.el !== el) return;
     state.sheet.handle = mountDetail(el, { eventId, legs, onClose: leaveSheet });
   } catch (err) {
@@ -326,7 +326,7 @@ async function openDetail(eventId) {
 async function openBuilder(initial) {
   const el = openSheet("builder");
   try {
-    const { mountBuilder } = await import("./builder.js?v=20261112b");
+    const { mountBuilder } = await import("./builder.js?v=20261112c");
     if (state.sheet?.el !== el) return;
     state.sheet.handle = mountBuilder(el, {
       initial,

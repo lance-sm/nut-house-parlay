@@ -9,7 +9,7 @@
 //   move.delta = now - open from the pick's side: > 0 means the pick gets more points now than at open,
 //   i.e. the money went the other way (against). Totals: open/now are the raw total, withPick per side.
 
-import { gradeLeg, gradeParlay, legLabel, fmtLine, fmtOdds, americanToDecimal } from "./grade.js?v=20261112b";
+import { gradeLeg, gradeParlay, legLabel, fmtLine, fmtOdds, americanToDecimal } from "./grade.js?v=20261112c";
 
 const KEYS = [3, 7, 10, 14];      // most common CFB final margins worth a hook (3 and 7 by far)
 const ML_PTS = 2.8;               // ~2.8% of win probability per point of spread near pick'em
