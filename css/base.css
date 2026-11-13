@@ -168,6 +168,7 @@ img { max-width: 100%; }
   font: 600 .95rem/1 var(--f-cond); letter-spacing: .1em; text-transform: uppercase;
 }
 .tab:hover { background: rgba(255,255,255,.13); }
+@media (max-width: 440px) { .tab { flex: 1 1 auto; padding: 0 8px; letter-spacing: .05em; font-size: .9rem; } }
 .tab[aria-selected="true"] { background: var(--gold); color: #1c1503; }
 
 .money { display: flex; gap: 18px; flex-wrap: wrap; font: 500 .95rem/1.2 var(--f-cond); letter-spacing: .03em; }

@@ -1,10 +1,10 @@
-import { fetchScoreboardDay, fetchSummary, etDateKey, kickoffText, logoHTML, escapeHTML } from "./espn.js?v=20261113d";
-import { gradeLeg, gradeParlay, legLabel, fmtOdds, parlayPrice, decimalToAmerican } from "./grade.js?v=20261113d";
+import { fetchScoreboardDay, fetchSummary, etDateKey, kickoffText, logoHTML, escapeHTML } from "./espn.js?v=20261113e";
+import { gradeLeg, gradeParlay, legLabel, fmtOdds, parlayPrice, decimalToAmerican } from "./grade.js?v=20261113e";
 import {
   loadSeasonLog, localParlays, saveLocal, mergeParlays, setCurrentId,
   cachedResults, cacheResult, decodeParlay, shareURL, loadSeasonData, getCrew,
-} from "./store.js?v=20261113d";
-import { crewMap, avatarHTML, mountCrew } from "./crew.js?v=20261113d";
+} from "./store.js?v=20261113e";
+import { crewMap, avatarHTML, mountCrew } from "./crew.js?v=20261113e";
 
 const LIVE_MS = 20_000;
 const IDLE_MS = 60_000;
@@ -20,6 +20,7 @@ const state = {
   sheet: null,          // { el, handle, kind }
   sheetViaNav: false,   // true when the open sheet came from an in-site tap (so Back can pop it)
   scout: null,          // mounted Scouting tab, created on first visit
+  lab: null,            // mounted Lab tab, created on first visit
   crew: null,           // mounted Crew tab
   book: null,           // record book under it (data/history.json)
   seasonGames: new Map(), // finals from data/season-YYYY.json, for records
@@ -254,20 +255,33 @@ async function showTab(tab) {
   $("ticket-view").hidden = tab !== "ticket";
   $("scout-view").hidden = tab !== "scout";
   $("crew-view").hidden = tab !== "crew";
+  $("lab-view").hidden = tab !== "lab";
   try { localStorage.setItem(TAB_KEY, tab); } catch { /* fine */ }
   if (tab === "crew" && !state.crew) {
     const root = $("crew-view");
     root.innerHTML = `<div class="bk-sec-h"><h2 class="bk-h2">This season, live</h2><span class="bk-aux">Graded by the Bozo Picks sheet, ESPN until it's filled in</span></div>
       <div class="crew-stack" id="crew-live"></div><div class="crew-stack bk" id="crew-book"></div>`;
     state.crew = mountCrew($("crew-live"), { parlays: state.parlays, crew: getCrew(), resolveGame });
-    import("./history.js?v=20261113d")
+    import("./history.js?v=20261113e")
       .then(({ mountHistory }) => { state.book = mountHistory($("crew-book"), { crew: getCrew() }); })
       .catch((err) => { $("crew-book").innerHTML = `<p class="banner error">Couldn't load the record book: ${escapeHTML(err.message)}</p>`; });
     return;
   }
+  if (tab === "lab") {
+    if (state.lab) return;
+    try {
+      const { mountLab } = await import("./lab.js?v=20261113e");
+      state.lab = mountLab($("lab-view"), {
+        onOpenGame: (eventId) => { location.hash = `g=${encodeURIComponent(eventId)}`; },
+      });
+    } catch (err) {
+      $("lab-view").innerHTML = `<p class="banner error">Couldn't load the Lab: ${escapeHTML(err.message)}</p>`;
+    }
+    return;
+  }
   if (tab !== "scout" || state.scout) return;
   try {
-    const { mountScout } = await import("./scout.js?v=20261113d");
+    const { mountScout } = await import("./scout.js?v=20261113e");
     state.scout = mountScout($("scout-view"), {
       parlays: state.parlays,
       currentParlay: state.current,
@@ -321,7 +335,7 @@ async function openDetail(eventId) {
   const el = openSheet("detail");
   const legs = state.current?.legs.filter((l) => String(l.e) === String(eventId)) || [];
   try {
-    const { mountDetail } = await import("./detail.js?v=20261113d");
+    const { mountDetail } = await import("./detail.js?v=20261113e");
     if (state.sheet?.el !== el) return;
     state.sheet.handle = mountDetail(el, { eventId, legs, onClose: leaveSheet });
   } catch (err) {
@@ -333,7 +347,7 @@ async function openDetail(eventId) {
 async function openBuilder(initial) {
   const el = openSheet("builder");
   try {
-    const { mountBuilder } = await import("./builder.js?v=20261113d");
+    const { mountBuilder } = await import("./builder.js?v=20261113e");
     if (state.sheet?.el !== el) return;
     state.sheet.handle = mountBuilder(el, {
       initial,
@@ -453,8 +467,8 @@ async function boot() {
   selectParlay(incoming?.id || state.parlays[0]?.id);
   if (incoming) announceShared(incoming);
   let tab = "ticket";
-  try { const saved = localStorage.getItem(TAB_KEY); tab = saved === "scout" || saved === "crew" ? saved : "ticket"; } catch { /* fine */ }
-  if (location.hash === "#scout" || location.hash === "#crew") {
+  try { const saved = localStorage.getItem(TAB_KEY); tab = ["scout", "crew", "lab"].includes(saved) ? saved : "ticket"; } catch { /* fine */ }
+  if (location.hash === "#scout" || location.hash === "#crew" || location.hash === "#lab") {
     tab = location.hash.slice(1);
     history.replaceState(null, "", location.pathname + location.search);
   }
