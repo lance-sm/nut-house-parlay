@@ -1,7 +1,7 @@
 {
   "season": 2026,
   "crew": [
-    { "id": "micah", "name": "Micah", "photo": "img/crew/micah.jpg" },
+    { "id": "micah", "name": "Micah", "photo": "img/crew/micah.jpg?v=20261113c" },
     { "id": "michael", "name": "Michael", "photo": "img/crew/michael.jpg" },
     { "id": "noah", "name": "Noah", "photo": "img/crew/noah.jpg" },
     { "id": "seth", "name": "Seth", "photo": "img/crew/seth.jpg" },
