@@ -1,0 +1,84 @@
+/* Team tab: the record book (data/history.json) under the live standings. */
+
+.crew-stack { display: grid; gap: 14px; min-width: 0; }
+#crew-book { margin-top: 12px; }
+
+.bk-sec-h { display: flex; align-items: baseline; justify-content: space-between; gap: 6px 10px; flex-wrap: wrap; padding: 0 2px; }
+.bk-h2 {
+  display: flex; align-items: center; gap: 8px; margin: 0;
+  font: 700 1.05rem/1.2 var(--f-cond); letter-spacing: .08em; text-transform: uppercase; color: var(--ink);
+}
+.bk-h2::before { content: ""; width: 4px; height: 1em; border-radius: 2px; background: var(--gold); flex: none; }
+.bk-aux { font: 500 .85rem/1.25 var(--f-cond); letter-spacing: .03em; color: var(--muted); }
+.bk-yr { margin: -6px 0 0; padding: 0 2px; }
+
+/* wide tables scroll inside their card, never the page */
+.bk-x {
+  overflow-x: auto; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; scrollbar-width: thin;
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.bk-table, .bk-log { width: 100%; border-collapse: collapse; font-family: var(--f-cond); }
+.bk-table th, .bk-table td, .bk-log th, .bk-log td { padding: 9px 10px; text-align: center; vertical-align: middle; }
+.bk-table thead th, .bk-log thead th {
+  font: 600 .74rem/1.2 var(--f-cond); letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+  border-bottom: 1px solid var(--line); white-space: nowrap;
+}
+.bk-table thead th abbr { text-decoration: none; display: block; }
+.bk-table thead th span { display: block; font-weight: 500; letter-spacing: .04em; color: var(--faint); }
+.bk-table tbody tr + tr th, .bk-table tbody tr + tr td { border-top: 1px dotted var(--line); }
+.bk-table td b { display: block; font-size: 1.1rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.bk-table td span { display: block; font-size: .82rem; color: var(--muted); }
+.bk-table td.bk-best b { color: var(--gold-ink); }
+.bk-table td.bk-best { background: var(--even-bg); }
+.bk-table td[data-tot] { border-left: 1px solid var(--line); }
+.bk-table tfoot th, .bk-table tfoot td { border-top: 2px solid var(--line); background: var(--surface-2); }
+.bk-none { color: var(--faint); }
+
+.bk-who { text-align: left !important; white-space: nowrap; }
+.bk-table th.bk-who { display: flex; align-items: center; gap: 8px; font: 700 1.05rem/1.1 var(--f-cond); }
+.bk-table thead th.bk-who { display: table-cell; }
+.bk-rank { width: 1.4ch; color: var(--faint); font-size: .9rem; text-align: center; }
+
+.bk-log th[scope="row"] { color: var(--muted); font-size: .95rem; }
+.bk-log tbody tr + tr > * { border-top: 1px dotted var(--line); }
+.bk-log td { min-width: 7.5em; font: 600 .9rem/1.2 var(--f-cond); text-align: left; }
+.bk-log td:last-child { min-width: 0; text-align: right; }
+.bk-pick { position: relative; }
+.bk-pick[data-tone="won"] { background: var(--hit-bg); }
+.bk-pick[data-tone="lost"] { background: var(--miss-bg); }
+.bk-pick[data-tone="push"] { background: var(--push-bg); }
+.bk-r { display: inline-block; width: 1.3em; font-weight: 700; }
+.bk-pick[data-tone="won"] .bk-r { color: var(--hit); }
+.bk-pick[data-tone="lost"] .bk-r { color: var(--miss); }
+.bk-pick[data-tone="push"] .bk-r { color: var(--push); }
+
+.bk-seg { display: inline-flex; gap: 3px; padding: 3px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); }
+.bk-seg-b {
+  min-height: 34px; padding: 0 12px; border: 0; border-radius: 999px; background: transparent; color: var(--muted);
+  font: 700 .85rem/1 var(--f-cond); letter-spacing: .06em; text-transform: uppercase; white-space: nowrap;
+}
+.bk-seg-b[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow); }
+
+/* scouting reports */
+.bk-bios { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 12px; }
+.bk-bio { display: grid; gap: 10px; padding: 14px 16px; min-width: 0; }
+.bk-bio-h { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center; }
+.bk-bio-id { display: grid; gap: 3px; min-width: 0; }
+.bk-bio-id h3 { margin: 0; font: 700 1.3rem/1.05 var(--f-cond); }
+.bk-bio-id .eyebrow { color: var(--gold-ink); }
+.bk-bio-rec { display: grid; justify-items: end; gap: 2px; white-space: nowrap; }
+.bk-bio-rec b { font-size: 1.35rem; line-height: 1; }
+.bk-bio-rec span { color: var(--muted); font-size: .88rem; }
+.bk-take { margin: 0; font-size: .95rem; line-height: 1.45; }
+.bk-facts {
+  list-style: none; margin: 0; padding: 10px 0 0; border-top: 2px dotted var(--line);
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px 14px;
+}
+.bk-facts li { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; min-width: 0; font: 500 .9rem/1.25 var(--f-cond); color: var(--muted); }
+.bk-facts li span { min-width: 0; overflow-wrap: anywhere; }
+.bk-facts li b { color: var(--ink); font-weight: 700; }
+
+@media (max-width: 420px) {
+  .bk-table th, .bk-table td { padding: 8px 7px; }
+  .bk-facts { grid-template-columns: minmax(0, 1fr); }
+}

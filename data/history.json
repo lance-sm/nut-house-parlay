@@ -1,0 +1,1571 @@
+{
+ "source": "Bozo Picks sheet",
+ "asOf": "2026-11-13",
+ "years": [
+  {
+   "year": 1,
+   "season": 2024,
+   "label": "Year 1",
+   "weeks": [
+    {
+     "wk": "1",
+     "picks": {
+      "lance": {
+       "text": "Clemson -18.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Clemson",
+       "line": -18.5
+      },
+      "micah": {
+       "text": "USC -5",
+       "r": "L",
+       "kind": "spread",
+       "team": "USC",
+       "line": -5.0
+      },
+      "michael": {
+       "text": "Tennessee -7",
+       "r": "W",
+       "kind": "spread",
+       "team": "Tennessee",
+       "line": -7.0
+      },
+      "patrick": {
+       "text": "Georgia Tech +10.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Georgia Tech",
+       "line": 10.5
+      }
+     }
+    },
+    {
+     "wk": "2",
+     "picks": {
+      "lance": {
+       "text": "Baylor -3.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Baylor",
+       "line": -3.5
+      },
+      "micah": {
+       "text": "Boise State ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Boise State"
+      },
+      "michael": {
+       "text": "K State -5.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Kansas State",
+       "line": -5.5
+      },
+      "patrick": {
+       "text": "Arkansas ML",
+       "r": "L",
+       "kind": "ml",
+       "team": "Arkansas"
+      }
+     }
+    },
+    {
+     "wk": "3",
+     "picks": {
+      "lance": {
+       "text": "Clemson -14.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Clemson",
+       "line": -14.5
+      },
+      "micah": {
+       "text": "South Carolina +8.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "South Carolina",
+       "line": 8.5
+      },
+      "michael": {
+       "text": "Mizzou +2",
+       "r": "L",
+       "kind": "spread",
+       "team": "Missouri",
+       "line": 2.0
+      },
+      "patrick": {
+       "text": "Wisconsin ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Wisconsin"
+      }
+     }
+    },
+    {
+     "wk": "4",
+     "picks": {
+      "lance": {
+       "text": "Clemson -21",
+       "r": "W",
+       "kind": "spread",
+       "team": "Clemson",
+       "line": -21.0
+      },
+      "micah": {
+       "text": "Penn State ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Penn State"
+      },
+      "michael": {
+       "text": "Iowa ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Iowa"
+      },
+      "patrick": {
+       "text": "Tennessee ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Tennessee"
+      }
+     }
+    },
+    {
+     "wk": "5",
+     "picks": {
+      "lance": {
+       "text": "UGA ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Georgia"
+      },
+      "micah": {
+       "text": "Nebraska +6.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Nebraska",
+       "line": 6.5
+      },
+      "michael": {
+       "text": "K State -2.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Kansas State",
+       "line": -2.5
+      },
+      "patrick": {
+       "text": "Georgia Tech +10",
+       "r": "L",
+       "kind": "spread",
+       "team": "Georgia Tech",
+       "line": 10.0
+      }
+     }
+    },
+    {
+     "wk": "6",
+     "picks": {
+      "lance": {
+       "text": "LSU ML",
+       "r": "L",
+       "kind": "ml",
+       "team": "LSU"
+      },
+      "micah": {
+       "text": "Boise St ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Boise State"
+      },
+      "michael": {
+       "text": "BYU +2",
+       "r": "W",
+       "kind": "spread",
+       "team": "BYU",
+       "line": 2.0
+      },
+      "patrick": {
+       "text": "Navy +10",
+       "r": "L",
+       "kind": "spread",
+       "team": "Navy",
+       "line": 10.0
+      }
+     }
+    },
+    {
+     "wk": "7",
+     "picks": {
+      "lance": {
+       "text": "Oregon ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Oregon"
+      },
+      "micah": {
+       "text": "Georgia -14.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Georgia",
+       "line": -14.5
+      },
+      "michael": {
+       "text": "K state -13",
+       "r": "L",
+       "kind": "spread",
+       "team": "Kansas State",
+       "line": -13.0
+      },
+      "patrick": {
+       "text": "Arkansas +7.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Arkansas",
+       "line": 7.5
+      }
+     }
+    },
+    {
+     "wk": "8",
+     "picks": {
+      "lance": {
+       "text": "Clemson -6.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Clemson",
+       "line": -6.5
+      },
+      "micah": {
+       "text": "Georgia ML",
+       "r": "L",
+       "kind": "ml",
+       "team": "Georgia"
+      },
+      "michael": {
+       "text": "The U -10",
+       "r": "L",
+       "kind": "spread",
+       "team": "Miami",
+       "line": -10.0
+      },
+      "patrick": {
+       "text": "BYU -3",
+       "r": "L",
+       "kind": "spread",
+       "team": "BYU",
+       "line": -3.0
+      }
+     }
+    },
+    {
+     "wk": "9",
+     "picks": {
+      "lance": {
+       "text": "Texas -12.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Texas",
+       "line": -12.5
+      },
+      "micah": {
+       "text": "K State ML",
+       "r": "L",
+       "kind": "ml",
+       "team": "Kansas State"
+      },
+      "michael": {
+       "text": "Oregon -13.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Oregon",
+       "line": -13.5
+      },
+      "patrick": {
+       "text": "BYU -2.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "BYU",
+       "line": -2.5
+      }
+     }
+    },
+    {
+     "wk": "10",
+     "picks": {
+      "lance": {
+       "text": "ND -14",
+       "r": "W",
+       "kind": "spread",
+       "team": "Notre Dame",
+       "line": -14.0
+      },
+      "micah": {
+       "text": "Washington St -13.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Washington State",
+       "line": -13.5
+      },
+      "michael": {
+       "text": "Texas A&M -2.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Texas A&M",
+       "line": -2.5
+      },
+      "patrick": {
+       "text": "Ohio St ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Ohio State"
+      }
+     }
+    },
+    {
+     "wk": "11",
+     "picks": {
+      "lance": {
+       "text": "Alabama -11.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Alabama",
+       "line": -11.5
+      },
+      "micah": {
+       "text": "Michigan +20",
+       "r": "W",
+       "kind": "spread",
+       "team": "Michigan",
+       "line": 20.0
+      },
+      "michael": {
+       "text": "South Alabama +1",
+       "r": "L",
+       "kind": "spread",
+       "team": "South Alabama",
+       "line": 1.0
+      },
+      "patrick": {
+       "text": "Syracuse +11",
+       "r": "W",
+       "kind": "spread",
+       "team": "Syracuse",
+       "line": 11.0
+      }
+     }
+    },
+    {
+     "wk": "12",
+     "picks": {
+      "lance": {
+       "text": "Oregon -3",
+       "r": "W",
+       "kind": "spread",
+       "team": "Oregon",
+       "line": -3.0
+      },
+      "micah": {
+       "text": "UNLV +4",
+       "r": "L",
+       "kind": "spread",
+       "team": "UNLV",
+       "line": 4.0
+      },
+      "michael": {
+       "text": "Clemson -3",
+       "r": "W",
+       "kind": "spread",
+       "team": "Clemson",
+       "line": -3.0
+      },
+      "patrick": {
+       "text": "ULL -6",
+       "r": "L",
+       "kind": "spread",
+       "team": "Louisiana",
+       "line": -6.0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "year": 2,
+   "season": 2025,
+   "label": "Year 2",
+   "weeks": [
+    {
+     "wk": "0",
+     "picks": {
+      "lance": {
+       "text": "Kansas -13.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Kansas",
+       "line": -13.5
+      },
+      "micah": {
+       "text": "Iowa St +2.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Iowa State",
+       "line": 2.5
+      },
+      "michael": {
+       "text": "K State/Iowa State U 51.5",
+       "r": "W",
+       "kind": "total",
+       "teams": [
+        "Kansas State",
+        "Iowa State"
+       ],
+       "side": "u",
+       "line": 51.5
+      },
+      "patrick": {
+       "text": "UNLV -30.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "UNLV",
+       "line": -30.5
+      }
+     }
+    },
+    {
+     "wk": "1",
+     "picks": {
+      "lance": {
+       "text": "Nebraska -6.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Nebraska",
+       "line": -6.5
+      },
+      "micah": {
+       "text": "Bama -13.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Alabama",
+       "line": -13.5
+      },
+      "michael": {
+       "text": "Iowa/Albany U 50.5",
+       "r": "W",
+       "kind": "total",
+       "teams": [
+        "Iowa",
+        "Albany"
+       ],
+       "side": "u",
+       "line": 50.5
+      },
+      "patrick": {
+       "text": "GT -4.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Georgia Tech",
+       "line": -4.5
+      },
+      "noah": {
+       "text": "Syracuse +13.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Syracuse",
+       "line": 13.5
+      }
+     }
+    },
+    {
+     "wk": "2",
+     "picks": {
+      "lance": {
+       "text": "AZ State -3.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Arizona State",
+       "line": -3.5
+      },
+      "micah": {
+       "text": "Michigan/OU O44.5",
+       "r": "L",
+       "kind": "total",
+       "teams": [
+        "Michigan",
+        "Oklahoma"
+       ],
+       "side": "o",
+       "line": 44.5
+      },
+      "michael": {
+       "text": "BYU -20.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "BYU",
+       "line": -20.5
+      },
+      "patrick": {
+       "text": "Kansas +6.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Kansas",
+       "line": 6.5
+      },
+      "noah": {
+       "text": "USF/UF U56.5",
+       "r": "W",
+       "kind": "total",
+       "teams": [
+        "South Florida",
+        "Florida"
+       ],
+       "side": "u",
+       "line": 56.5
+      }
+     }
+    },
+    {
+     "wk": "3",
+     "picks": {
+      "lance": {
+       "text": "Notre Dame ML",
+       "r": "L",
+       "kind": "ml",
+       "team": "Notre Dame"
+      },
+      "micah": {
+       "text": "Oregon -21.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Oregon",
+       "line": -21.5
+      },
+      "michael": {
+       "text": "Arizona +1",
+       "r": "W",
+       "kind": "spread",
+       "team": "Arizona",
+       "line": 1.0
+      },
+      "patrick": {
+       "text": "Ole Miss -7.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Ole Miss",
+       "line": -7.5
+      },
+      "noah": {
+       "text": "Georgia Tech +3.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Georgia Tech",
+       "line": 3.5
+      }
+     }
+    },
+    {
+     "wk": "4",
+     "picks": {
+      "lance": {
+       "text": "Miami -7.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Miami",
+       "line": -7.5
+      },
+      "micah": {
+       "text": "OU -6.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Oklahoma",
+       "line": -6.5
+      },
+      "michael": {
+       "text": "UNT -2.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "North Texas",
+       "line": -2.5
+      },
+      "patrick": {
+       "text": "Texas Tech +3.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Texas Tech",
+       "line": 3.5
+      },
+      "noah": {
+       "text": "Ole Miss -12",
+       "r": "W",
+       "kind": "spread",
+       "team": "Ole Miss",
+       "line": -12.0
+      }
+     }
+    },
+    {
+     "wk": "5",
+     "picks": {
+      "lance": {
+       "text": "Indiana -8",
+       "r": "L",
+       "kind": "spread",
+       "team": "Indiana",
+       "line": -8.0
+      },
+      "micah": {
+       "text": "Georgia -2.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Georgia",
+       "line": -2.5
+      },
+      "michael": {
+       "text": "Ole Miss -1.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Ole Miss",
+       "line": -1.5
+      },
+      "patrick": {
+       "text": "Penn State ML",
+       "r": "L",
+       "kind": "ml",
+       "team": "Penn State"
+      },
+      "noah": {
+       "text": "Notre Dame -4.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Notre Dame",
+       "line": -4.5
+      }
+     }
+    },
+    {
+     "wk": "6",
+     "picks": {
+      "lance": {
+       "text": "Texas -5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Texas",
+       "line": -5.0
+      },
+      "micah": {
+       "text": "Miami ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Miami"
+      },
+      "michael": {
+       "text": "Penn State -24.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Penn State",
+       "line": -24.5
+      },
+      "patrick": {
+       "text": "Iowa St +1.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Iowa State",
+       "line": 1.5
+      },
+      "noah": {
+       "text": "Vandy +10.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Vanderbilt",
+       "line": 10.5
+      }
+     }
+    },
+    {
+     "wk": "7",
+     "picks": {
+      "lance": {
+       "text": "Bama -3",
+       "r": "P",
+       "kind": "spread",
+       "team": "Alabama",
+       "line": -3.0
+      },
+      "micah": {
+       "text": "WSU +32.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Washington State",
+       "line": 32.5
+      },
+      "michael": {
+       "text": "BYU -1.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "BYU",
+       "line": -1.5
+      },
+      "patrick": {
+       "text": "Tennessee -12.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Tennessee",
+       "line": -12.5
+      },
+      "noah": {
+       "text": "Michigan ML",
+       "r": "L",
+       "kind": "ml",
+       "team": "Michigan"
+      },
+      "seth": {
+       "text": "FSU -9.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Florida State",
+       "line": -9.5
+      }
+     }
+    },
+    {
+     "wk": "8",
+     "picks": {
+      "lance": {
+       "text": "Ole Miss +7.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Ole Miss",
+       "line": 7.5
+      },
+      "micah": {
+       "text": "USC +9.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "USC",
+       "line": 9.5
+      },
+      "michael": {
+       "text": "GT ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Georgia Tech"
+      },
+      "patrick": {
+       "text": "Arizona St +7.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Arizona State",
+       "line": 7.5
+      },
+      "noah": {
+       "text": "LSU ML",
+       "r": "L",
+       "kind": "ml",
+       "team": "LSU"
+      },
+      "seth": {
+       "text": "A&M -7.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Texas A&M",
+       "line": -7.5
+      }
+     }
+    },
+    {
+     "wk": "9",
+     "picks": {
+      "lance": {
+       "text": "Auburn ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Auburn"
+      },
+      "micah": {
+       "text": "UCLA +30.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "UCLA",
+       "line": 30.5
+      },
+      "michael": {
+       "text": "BYU +3.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "BYU",
+       "line": 3.5
+      },
+      "patrick": {
+       "text": "Ole Miss +5.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Ole Miss",
+       "line": 5.5
+      },
+      "noah": {
+       "text": "Vandy ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Vanderbilt"
+      },
+      "seth": {
+       "text": "Memphis/USF O58.5",
+       "r": "W",
+       "kind": "total",
+       "teams": [
+        "Memphis",
+        "South Florida"
+       ],
+       "side": "o",
+       "line": 58.5
+      }
+     }
+    },
+    {
+     "wk": "10",
+     "picks": {
+      "lance": {
+       "text": "Auburn ML",
+       "r": "L",
+       "kind": "ml",
+       "team": "Auburn"
+      },
+      "micah": {
+       "text": "UGA ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Georgia"
+      },
+      "michael": {
+       "text": "Wash State -3.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Washington State",
+       "line": -3.5
+      },
+      "patrick": {
+       "text": "UH -13.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Houston",
+       "line": -13.5
+      },
+      "noah": {
+       "text": "GT ML",
+       "r": "L",
+       "kind": "ml",
+       "team": "Georgia Tech"
+      },
+      "seth": {
+       "text": "UT/OU o56.5",
+       "r": "W",
+       "kind": "total",
+       "teams": [
+        "Texas",
+        "Oklahoma"
+       ],
+       "side": "o",
+       "line": 56.5
+      }
+     }
+    },
+    {
+     "wk": "11",
+     "picks": {
+      "lance": {
+       "text": "Bama ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Alabama"
+      },
+      "micah": {
+       "text": "TAMU ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Texas A&M"
+      },
+      "michael": {
+       "text": "Vandy -6",
+       "r": "W",
+       "kind": "spread",
+       "team": "Vanderbilt",
+       "line": -6.0
+      },
+      "patrick": {
+       "text": "Purdue +29.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Purdue",
+       "line": 29.5
+      },
+      "noah": {
+       "text": "SMU -10.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "SMU",
+       "line": -10.5
+      },
+      "seth": {
+       "text": "TTU/BYU o51.5",
+       "r": "L",
+       "kind": "total",
+       "teams": [
+        "Texas Tech",
+        "BYU"
+       ],
+       "side": "o",
+       "line": 51.5
+      }
+     }
+    },
+    {
+     "wk": "12",
+     "picks": {
+      "lance": {
+       "text": "UGA -6.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Georgia",
+       "line": -6.5
+      },
+      "micah": {
+       "text": "Bama ML",
+       "r": "L",
+       "kind": "ml",
+       "team": "Alabama"
+      },
+      "michael": {
+       "text": "LSU -5",
+       "r": "L",
+       "kind": "spread",
+       "team": "LSU",
+       "line": -5.0
+      },
+      "patrick": {
+       "text": "BYU -3",
+       "r": "W",
+       "kind": "spread",
+       "team": "BYU",
+       "line": -3.0
+      },
+      "noah": {
+       "text": "UVA ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Virginia"
+      },
+      "seth": {
+       "text": "Ole Miss ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Ole Miss"
+      }
+     }
+    },
+    {
+     "wk": "13",
+     "picks": {
+      "lance": {
+       "text": "SMU -4.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "SMU",
+       "line": -4.5
+      },
+      "micah": {
+       "text": "ASU ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Arizona State"
+      },
+      "michael": {
+       "text": "Cal -3.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "California",
+       "line": -3.5
+      },
+      "patrick": {
+       "text": "BYU -2.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "BYU",
+       "line": -2.5
+      },
+      "noah": {
+       "text": "USC +10.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "USC",
+       "line": 10.5
+      },
+      "seth": {
+       "text": "Baylor/Arizona o62.5",
+       "r": "L",
+       "kind": "total",
+       "teams": [
+        "Baylor",
+        "Arizona"
+       ],
+       "side": "o",
+       "line": 62.5
+      }
+     }
+    },
+    {
+     "wk": "14",
+     "picks": {
+      "lance": {
+       "text": "Bama -6",
+       "r": "W",
+       "kind": "spread",
+       "team": "Alabama",
+       "line": -6.0
+      },
+      "micah": {
+       "text": "South Carolina ML",
+       "r": "L",
+       "kind": "ml",
+       "team": "South Carolina"
+      },
+      "michael": {
+       "text": "A&M -2.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Texas A&M",
+       "line": -2.5
+      },
+      "patrick": {
+       "text": "Tennessee -2.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Tennessee",
+       "line": -2.5
+      },
+      "noah": {
+       "text": "Ohio State -10",
+       "r": "W",
+       "kind": "spread",
+       "team": "Ohio State",
+       "line": -10.0
+      },
+      "seth": {
+       "text": "Oregon -7",
+       "r": "W",
+       "kind": "spread",
+       "team": "Oregon",
+       "line": -7.0
+      }
+     }
+    }
+   ]
+  },
+  {
+   "year": 3,
+   "season": 2026,
+   "label": "Year 3",
+   "weeks": [
+    {
+     "wk": "1",
+     "picks": {
+      "lance": {
+       "text": "SMU -3",
+       "r": "W",
+       "kind": "spread",
+       "team": "SMU",
+       "line": -3.0
+      },
+      "micah": {
+       "text": "Baylor +6.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Baylor",
+       "line": 6.5
+      },
+      "michael": {
+       "text": "Iowa/N Illinois U44.5",
+       "r": "W",
+       "kind": "total",
+       "teams": [
+        "Iowa",
+        "Northern Illinois"
+       ],
+       "side": "u",
+       "line": 44.5
+      },
+      "noah": {
+       "text": "Ole Miss -6.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Ole Miss",
+       "line": -6.5
+      },
+      "seth": {
+       "text": "Notre Dame -20.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Notre Dame",
+       "line": -20.5
+      }
+     }
+    },
+    {
+     "wk": "2",
+     "picks": {
+      "lance": {
+       "text": "BYU -7.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "BYU",
+       "line": -7.5
+      },
+      "micah": {
+       "text": "Georgia Tech +12.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Georgia Tech",
+       "line": 12.5
+      },
+      "michael": {
+       "text": "Utah -12",
+       "r": "W",
+       "kind": "spread",
+       "team": "Utah",
+       "line": -12.0
+      },
+      "patrick": {
+       "text": "Mississippi State -1",
+       "r": "W",
+       "kind": "spread",
+       "team": "Mississippi State",
+       "line": -1.0
+      },
+      "noah": {
+       "text": "Boise State -9.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Boise State",
+       "line": -9.5
+      },
+      "seth": {
+       "text": "Oklahoma -4.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Oklahoma",
+       "line": -4.5
+      }
+     }
+    },
+    {
+     "wk": "3",
+     "picks": {
+      "lance": {
+       "text": "Alabama -20",
+       "r": "W",
+       "kind": "spread",
+       "team": "Alabama",
+       "line": -20.0
+      },
+      "micah": {
+       "text": "UF/Auburn U53",
+       "r": "L",
+       "kind": "total",
+       "teams": [
+        "Florida",
+        "Auburn"
+       ],
+       "side": "u",
+       "line": 53.0
+      },
+      "michael": {
+       "text": "Miami -20.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Miami",
+       "line": -20.5
+      },
+      "patrick": {
+       "text": "Mississippi State +3.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Mississippi State",
+       "line": 3.5
+      },
+      "noah": {
+       "text": "SMU/UL O58.5",
+       "r": "W",
+       "kind": "total",
+       "teams": [
+        "SMU",
+        "Louisville"
+       ],
+       "side": "o",
+       "line": 58.5,
+       "note": "Sheet says only SMU/UL; side and line from the site's Week 3 ticket"
+      },
+      "seth": {
+       "text": "LSU -3",
+       "r": "W",
+       "kind": "spread",
+       "team": "LSU",
+       "line": -3.0
+      }
+     }
+    },
+    {
+     "wk": "4",
+     "picks": {
+      "lance": {
+       "text": "Georgia -13.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Georgia",
+       "line": -13.5
+      },
+      "micah": {
+       "text": "Baylor -4.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Baylor",
+       "line": -4.5
+      },
+      "michael": {
+       "text": "UCLA -1.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "UCLA",
+       "line": -1.5
+      },
+      "patrick": {
+       "text": "Iowa +5.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Iowa",
+       "line": 5.5
+      },
+      "noah": {
+       "text": "Oregon ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Oregon"
+      },
+      "seth": {
+       "text": "Alabama -12.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Alabama",
+       "line": -12.5
+      }
+     }
+    },
+    {
+     "wk": "5",
+     "picks": {
+      "lance": {
+       "text": "Alabama ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Alabama"
+      },
+      "micah": {
+       "text": "Florida -5.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Florida",
+       "line": -5.5
+      },
+      "michael": {
+       "text": "BYU -6",
+       "r": "W",
+       "kind": "spread",
+       "team": "BYU",
+       "line": -6.0
+      },
+      "patrick": {
+       "text": "Ohio St ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Ohio State"
+      },
+      "noah": {
+       "text": "New Mexico -23.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "New Mexico",
+       "line": -23.5
+      },
+      "seth": {
+       "text": "Kentucky +2.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Kentucky",
+       "line": 2.5
+      }
+     }
+    },
+    {
+     "wk": "6",
+     "picks": {
+      "lance": {
+       "text": "Indiana -6.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Indiana",
+       "line": -6.5
+      },
+      "micah": {
+       "text": "Texas -7.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Texas",
+       "line": -7.5
+      },
+      "michael": {
+       "text": "UH +2.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Houston",
+       "line": 2.5
+      },
+      "patrick": {
+       "text": "Georgia +1.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Georgia",
+       "line": 1.5
+      },
+      "noah": {
+       "text": "Ohio St -32.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Ohio State",
+       "line": -32.5
+      },
+      "seth": {
+       "text": "Mizzou -3.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Missouri",
+       "line": -3.5
+      }
+     }
+    },
+    {
+     "wk": "7",
+     "picks": {
+      "lance": {
+       "text": "Northwestern -7.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Northwestern",
+       "line": -7.5
+      },
+      "micah": {
+       "text": "BYU/ND U46.5",
+       "r": "L",
+       "kind": "total",
+       "teams": [
+        "BYU",
+        "Notre Dame"
+       ],
+       "side": "u",
+       "line": 46.5
+      },
+      "michael": {
+       "text": "UCLA -2.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "UCLA",
+       "line": -2.5
+      },
+      "patrick": {
+       "text": "BYU +10.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "BYU",
+       "line": 10.5
+      },
+      "noah": {
+       "text": "New Mexico -14.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "New Mexico",
+       "line": -14.5
+      },
+      "seth": {
+       "text": "Alabama -7.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Alabama",
+       "line": -7.5
+      }
+     }
+    },
+    {
+     "wk": "8",
+     "picks": {
+      "lance": {
+       "text": "Baylor ML",
+       "r": "L",
+       "kind": "ml",
+       "team": "Baylor"
+      },
+      "micah": {
+       "text": "UH +6.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Houston",
+       "line": 6.5
+      },
+      "michael": {
+       "text": "UNT -3",
+       "r": "W",
+       "kind": "spread",
+       "team": "North Texas",
+       "line": -3.0
+      },
+      "patrick": {
+       "text": "Tennessee +2.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Tennessee",
+       "line": 2.5
+      },
+      "noah": {
+       "text": "New Mexico ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "New Mexico"
+      },
+      "seth": {
+       "text": "BYU -7",
+       "r": "L",
+       "kind": "spread",
+       "team": "BYU",
+       "line": -7.0
+      }
+     }
+    },
+    {
+     "wk": "9",
+     "picks": {
+      "lance": {
+       "text": "New Mexico -14.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "New Mexico",
+       "line": -14.5
+      },
+      "micah": {
+       "text": "K State +2.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Kansas State",
+       "line": 2.5
+      },
+      "michael": {
+       "text": "Illinois -2.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Illinois",
+       "line": -2.5
+      },
+      "patrick": {
+       "text": "Iowa -2.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Iowa",
+       "line": -2.5
+      },
+      "noah": {
+       "text": "Ohio State -6.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Ohio State",
+       "line": -6.5
+      },
+      "seth": {
+       "text": "Missouri -9.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Missouri",
+       "line": -9.5
+      }
+     }
+    },
+    {
+     "wk": "10",
+     "picks": {
+      "lance": {
+       "text": "Mizzou +2.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Missouri",
+       "line": 2.5
+      },
+      "micah": {
+       "text": "Georgia ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Georgia"
+      },
+      "michael": {
+       "text": "Florida -5.5",
+       "r": "L",
+       "kind": "spread",
+       "team": "Florida",
+       "line": -5.5
+      },
+      "patrick": {
+       "text": "Baylor ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Baylor"
+      },
+      "noah": {
+       "text": "South Carolina ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "South Carolina"
+      },
+      "seth": {
+       "text": "OK State -6.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Oklahoma State",
+       "line": -6.5
+      }
+     }
+    }
+   ]
+  }
+ ],
+ "bios": {
+  "lance": {
+   "tag": "The Chalk Merchant",
+   "take": "Lays the points and doesn't look back. He has never played a total, and the rare times he takes points he's 0–2. Alabama is his security blanket (unbeaten, one push) and Clemson went 4-for-4 in Year 1. Rode a nine-pick heater from late Year 2 into Year 3, then followed it with five straight misses."
+  },
+  "micah": {
+   "tag": "The Long Shot",
+   "take": "The moneyline is home, and it's the one place he's a winner. Spreads and totals are another story: laying points has gone 2–8 and he's 0-for-3 on totals. Fearless with big numbers: took Washington State +32.5 and cashed it, then took UCLA +30.5 and didn't."
+  },
+  "michael": {
+   "tag": "The Closer",
+   "take": "The house's best all-time record, and he's improved every season (6–6, then 10–5, then 8–2). Mostly favorites, a perfect record on unders, and a BYU believer who has never lost with the Cougars."
+  },
+  "patrick": {
+   "tag": "Dog Walker",
+   "take": "Takes the points. Getting points and playing moneylines carry him, while laying points has been a loser. Went from 4–8 in Year 1 to 8–1 in Year 3, the best single season anyone in the house has had. Tennessee keeps burning him."
+  },
+  "noah": {
+   "tag": "Big Swing",
+   "take": "Joined in Year 2 and has stayed over .500 every season. Likes a moneyline and isn't scared of a huge number: laid 32.5 with Ohio State, which missed, and the Buckeyes have burned him twice. New Mexico is his mid-major crush this year."
+  },
+  "seth": {
+   "tag": "Over Man",
+   "take": "Joined midway through Year 2. Mostly a favorites guy, and when he plays a total it's always the over. Year 3 has been his best run yet."
+  }
+ }
+}
