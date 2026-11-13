@@ -1,10 +1,10 @@
-import { fetchScoreboardDay, fetchSummary, etDateKey, kickoffText, logoHTML, escapeHTML } from "./espn.js?v=20261113c";
-import { gradeLeg, gradeParlay, legLabel, fmtOdds, parlayPrice, decimalToAmerican } from "./grade.js?v=20261113c";
+import { fetchScoreboardDay, fetchSummary, etDateKey, kickoffText, logoHTML, escapeHTML } from "./espn.js?v=20261113d";
+import { gradeLeg, gradeParlay, legLabel, fmtOdds, parlayPrice, decimalToAmerican } from "./grade.js?v=20261113d";
 import {
   loadSeasonLog, localParlays, saveLocal, mergeParlays, setCurrentId,
   cachedResults, cacheResult, decodeParlay, shareURL, loadSeasonData, getCrew,
-} from "./store.js?v=20261113c";
-import { crewMap, avatarHTML, mountCrew } from "./crew.js?v=20261113c";
+} from "./store.js?v=20261113d";
+import { crewMap, avatarHTML, mountCrew } from "./crew.js?v=20261113d";
 
 const LIVE_MS = 20_000;
 const IDLE_MS = 60_000;
@@ -257,17 +257,17 @@ async function showTab(tab) {
   try { localStorage.setItem(TAB_KEY, tab); } catch { /* fine */ }
   if (tab === "crew" && !state.crew) {
     const root = $("crew-view");
-    root.innerHTML = `<div class="bk-sec-h"><h2 class="bk-h2">This season, live</h2><span class="bk-aux">Graded from ESPN finals</span></div>
+    root.innerHTML = `<div class="bk-sec-h"><h2 class="bk-h2">This season, live</h2><span class="bk-aux">Graded by the Bozo Picks sheet, ESPN until it's filled in</span></div>
       <div class="crew-stack" id="crew-live"></div><div class="crew-stack bk" id="crew-book"></div>`;
     state.crew = mountCrew($("crew-live"), { parlays: state.parlays, crew: getCrew(), resolveGame });
-    import("./history.js?v=20261113c")
+    import("./history.js?v=20261113d")
       .then(({ mountHistory }) => { state.book = mountHistory($("crew-book"), { crew: getCrew() }); })
       .catch((err) => { $("crew-book").innerHTML = `<p class="banner error">Couldn't load the record book: ${escapeHTML(err.message)}</p>`; });
     return;
   }
   if (tab !== "scout" || state.scout) return;
   try {
-    const { mountScout } = await import("./scout.js?v=20261113c");
+    const { mountScout } = await import("./scout.js?v=20261113d");
     state.scout = mountScout($("scout-view"), {
       parlays: state.parlays,
       currentParlay: state.current,
@@ -321,7 +321,7 @@ async function openDetail(eventId) {
   const el = openSheet("detail");
   const legs = state.current?.legs.filter((l) => String(l.e) === String(eventId)) || [];
   try {
-    const { mountDetail } = await import("./detail.js?v=20261113c");
+    const { mountDetail } = await import("./detail.js?v=20261113d");
     if (state.sheet?.el !== el) return;
     state.sheet.handle = mountDetail(el, { eventId, legs, onClose: leaveSheet });
   } catch (err) {
@@ -333,7 +333,7 @@ async function openDetail(eventId) {
 async function openBuilder(initial) {
   const el = openSheet("builder");
   try {
-    const { mountBuilder } = await import("./builder.js?v=20261113c");
+    const { mountBuilder } = await import("./builder.js?v=20261113d");
     if (state.sheet?.el !== el) return;
     state.sheet.handle = mountBuilder(el, {
       initial,
