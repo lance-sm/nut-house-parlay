@@ -65,7 +65,19 @@ function elapsedFraction(game) {
   return Math.min(1, ((game.period - 1) * 900 + (900 - left)) / 3600);
 }
 
+// The Bozo Picks sheet is the official record. A leg with  r: "W" | "L" | "P"  (copied from the
+// sheet) is graded that way whatever ESPN's final says; ESPN only grades legs the sheet hasn't yet.
+const OFFICIAL = { W: "won", L: "lost", P: "push" };
+const OFFICIAL_TEXT = { won: "Hit", lost: "Missed", push: "Push" };
+
 export function gradeLeg(leg, game) {
+  const tone = OFFICIAL[String(leg?.r || "").toUpperCase()];
+  const espn = espnGrade(leg, game);
+  if (!tone || espn.tone === tone) return espn;
+  return { tone, settled: true, margin: espn.margin, text: `${OFFICIAL_TEXT[tone]} (per the sheet)`, sub: espn.sub };
+}
+
+function espnGrade(leg, game) {
   if (!game) return { tone: "pending", settled: false, margin: null, text: "Loading…", sub: "" };
 
   const isVoid = game.state === "post" && !game.completed;

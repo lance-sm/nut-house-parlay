@@ -7,8 +7,8 @@
 //   root: an empty <div class="sheet" role="dialog" aria-modal="true"> (fixed, full screen,
 //   and the scroll container). Styles live in css/detail.css, all scoped under .detail.
 
-import { fetchSummary, logoHTML, escapeHTML as esc, kickoffText } from "./espn.js?v=20261113b";
-import { gradeLeg, legLabel, fmtLine, fmtOdds, teamById } from "./grade.js?v=20261113b";
+import { fetchSummary, logoHTML, escapeHTML as esc, kickoffText } from "./espn.js?v=20261113c";
+import { gradeLeg, legLabel, fmtLine, fmtOdds, teamById } from "./grade.js?v=20261113c";
 
 const POLL_MS = 20000;                    // live refresh cadence
 const PREGAME_WINDOW_MS = 15 * 60000;     // start polling this close to kickoff

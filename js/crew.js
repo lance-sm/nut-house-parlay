@@ -1,10 +1,10 @@
 // The house: who picked each leg, and everyone's record.
 //
 // parlays.json carries  crew: [{ id, name, photo }]  and each leg can carry  by: "<crew id>".
-// Records are never stored; like the ticket they are regraded from ESPN finals every load.
+// Records are never stored: legs with a sheet result (leg.r) count as the sheet says, the rest are graded from ESPN finals.
 
-import { gradeLeg, legLabel } from "./grade.js?v=20261113b";
-import { escapeHTML as esc } from "./espn.js?v=20261113b";
+import { gradeLeg, legLabel } from "./grade.js?v=20261113c";
+import { escapeHTML as esc } from "./espn.js?v=20261113c";
 
 export function crewMap(crew) {
   return new Map((crew || []).map((c) => [String(c.id), c]));

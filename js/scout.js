@@ -11,11 +11,11 @@
 // game on the slate (6 at a time, cached per event in sessionStorage), loadSeasonData(year) for
 // closing lines on finished games and the season trends. The math lives in insights.js.
 
-import { fetchWeekSlate, fetchPredictor, logoHTML, escapeHTML as esc, kickoffText } from "./espn.js?v=20261113b";
-import { gradeLeg, legLabel, fmtLine, fmtOdds, teamById } from "./grade.js?v=20261113b";
-import { loadSeasonData, getCrew } from "./store.js?v=20261113b";
-import { crewMap, avatarHTML } from "./crew.js?v=20261113b";
-import { slatePicks, legInsights, pitfalls, marketTrends, houseTrends, bestWorst, boardRecord } from "./insights.js?v=20261113b";
+import { fetchWeekSlate, fetchPredictor, logoHTML, escapeHTML as esc, kickoffText } from "./espn.js?v=20261113c";
+import { gradeLeg, legLabel, fmtLine, fmtOdds, teamById } from "./grade.js?v=20261113c";
+import { loadSeasonData, getCrew } from "./store.js?v=20261113c";
+import { crewMap, avatarHTML } from "./crew.js?v=20261113c";
+import { slatePicks, legInsights, pitfalls, marketTrends, houseTrends, bestWorst, boardRecord } from "./insights.js?v=20261113c";
 
 const WEEK_MIN = 1;
 const WEEK_MAX = 16;

@@ -70,9 +70,14 @@ export function mergeParlays(log, local) {
   for (const p of local) {
     // A phone's copy saved before legs were tagged still picks up who picked what from the log.
     const logged = byId.get(p.id);
-    const tags = new Map((logged?.legs || []).filter((l) => l.by).map((l) => [`${l.e}|${l.t}|${l.s}`, l.by]));
-    byId.set(p.id, tags.size
-      ? { ...p, legs: p.legs.map((l) => (l.by || !tags.has(`${l.e}|${l.t}|${l.s}`) ? l : { ...l, by: tags.get(`${l.e}|${l.t}|${l.s}`) })) }
+    // Same for the sheet's official result (r), which always wins over this device's copy.
+    const fromLog = new Map((logged?.legs || []).filter((l) => l.by || l.r).map((l) => [`${l.e}|${l.t}|${l.s}`, l]));
+    byId.set(p.id, fromLog.size
+      ? { ...p, legs: p.legs.map((l) => {
+          const src = fromLog.get(`${l.e}|${l.t}|${l.s}`);
+          if (!src) return l;
+          return { ...l, ...(l.by || !src.by ? {} : { by: src.by }), ...(src.r ? { r: src.r } : {}) };
+        }) }
       : p);
   }
   return [...byId.values()].sort((a, b) => (b.date || "").localeCompare(a.date || "") || b.id.localeCompare(a.id));
@@ -107,7 +112,7 @@ function fromBase64Url(code) {
 export function encodeParlay(p) {
   const compact = {
     v: 1, i: p.id, m: p.name, d: p.date, s: p.stake ?? null, p: p.payout ?? null,
-    L: p.legs.map((l) => [l.e, l.t, l.s, l.l ?? null, l.o ?? null, l.n ?? null, l.g ?? null, l.k ?? null, l.by ?? null]),
+    L: p.legs.map((l) => [l.e, l.t, l.s, l.l ?? null, l.o ?? null, l.n ?? null, l.g ?? null, l.k ?? null, l.by ?? null, l.r ?? null]),
   };
   return toBase64Url(JSON.stringify(compact));
 }
@@ -117,7 +122,7 @@ export function decodeParlay(code) {
   if (c.v !== 1 || !Array.isArray(c.L)) throw new Error("Unrecognized parlay link");
   return {
     id: String(c.i), name: c.m || "Parlay", date: c.d || null, stake: c.s ?? null, payout: c.p ?? null,
-    legs: c.L.map(([e, t, s, l, o, n, g, k, by]) => ({ e: String(e), t, s: String(s), l, o, n, g, k, ...(by ? { by: String(by) } : {}) })),
+    legs: c.L.map(([e, t, s, l, o, n, g, k, by, r]) => ({ e: String(e), t, s: String(s), l, o, n, g, k, ...(by ? { by: String(by) } : {}), ...(r ? { r: String(r) } : {}) })),
   };
 }
 

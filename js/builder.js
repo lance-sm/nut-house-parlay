@@ -6,8 +6,8 @@
 //
 // Leg shape is documented at the top of grade.js. Styles live in css/builder.css.
 
-import { fetchWeekSlate, logoHTML, escapeHTML as esc, kickoffText, etDateKey } from "./espn.js?v=20261113b";
-import { legLabel, fmtLine, fmtOdds, parlayPrice, americanToDecimal, decimalToAmerican } from "./grade.js?v=20261113b";
+import { fetchWeekSlate, logoHTML, escapeHTML as esc, kickoffText, etDateKey } from "./espn.js?v=20261113c";
+import { legLabel, fmtLine, fmtOdds, parlayPrice, americanToDecimal, decimalToAmerican } from "./grade.js?v=20261113c";
 
 /* ================================ search ================================ */
 
