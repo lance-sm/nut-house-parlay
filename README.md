@@ -19,3 +19,11 @@ python3 -m http.server 8642
 ```
 
 Then open http://localhost:8642.
+
+## Cache busting
+
+Every script/style URL carries `?v=<stamp>` (index.html and every `import` in js/). When you change any JS or CSS, bump the stamp everywhere in one go so phones don't mix old and new files:
+
+```bash
+sed -i '' -E 's/\?v=[0-9a-z]+/?v=NEWSTAMP/g' index.html js/*.js
+```
