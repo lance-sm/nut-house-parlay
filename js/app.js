@@ -2,8 +2,9 @@ import { fetchScoreboardDay, fetchSummary, etDateKey, kickoffText, logoHTML, esc
 import { gradeLeg, gradeParlay, legLabel, fmtOdds, parlayPrice, decimalToAmerican } from "./grade.js";
 import {
   loadSeasonLog, localParlays, saveLocal, mergeParlays, setCurrentId,
-  cachedResults, cacheResult, decodeParlay, shareURL, loadSeasonData,
+  cachedResults, cacheResult, decodeParlay, shareURL, loadSeasonData, getCrew,
 } from "./store.js";
+import { crewMap, avatarHTML, mountCrew } from "./crew.js";
 
 const LIVE_MS = 20_000;
 const IDLE_MS = 60_000;
@@ -19,7 +20,12 @@ const state = {
   sheet: null,          // { el, handle, kind }
   sheetViaNav: false,   // true when the open sheet came from an in-site tap (so Back can pop it)
   scout: null,          // mounted Scouting tab, created on first visit
+  crew: null,           // mounted Crew tab
+  seasonGames: new Map(), // finals from data/season-YYYY.json, for records
 };
+
+// Live games for the week on screen win over the season snapshot.
+const resolveGame = (id) => state.games.get(String(id)) || state.seasonGames.get(String(id)) || null;
 
 // ---------- data ----------
 
@@ -52,6 +58,7 @@ async function refresh() {
     state.error = err.message || "Couldn't reach ESPN";
   }
   render();
+  state.crew?.update({ parlays: state.parlays, resolveGame });
   schedule();
 }
 
@@ -178,6 +185,12 @@ function clockHTML(game) {
   return `<span>${escapeHTML(game.detail || "Final")}</span>`;
 }
 
+function byHTML(leg) {
+  const person = leg.by ? crewMap(getCrew()).get(String(leg.by)) : null;
+  if (!person) return "";
+  return `<span class="leg-by">${avatarHTML(person, "sm")}<span>${escapeHTML(person.name)}</span></span>`;
+}
+
 function legHTML(leg, game, grade) {
   const label = legLabel(leg, game);
   const odds = leg.o ? `<span class="odds">${fmtOdds(leg.o)}</span>` : "";
@@ -185,11 +198,11 @@ function legHTML(leg, game, grade) {
   const chip = `<span class="chip ${grade.tone}">${escapeHTML(chipText)}</span>`;
   if (!game) {
     return `<li><a class="leg" data-tone="pending" href="#g=${encodeURIComponent(leg.e)}">
-      <span class="leg-pick">${escapeHTML(label)} ${odds}</span><span class="leg-status">${chip}</span>
+      ${byHTML(leg)}<span class="leg-pick">${escapeHTML(label)} ${odds}</span><span class="leg-status">${chip}</span>
       <span class="leg-sub">${escapeHTML(leg.g || "")}</span></a></li>`;
   }
-  return `<li><a class="leg" data-tone="${grade.tone}" href="#g=${encodeURIComponent(leg.e)}" aria-label="${escapeHTML(label)}: ${escapeHTML(grade.text)}. Open game details">
-    <span class="leg-pick">${escapeHTML(label)} ${odds}</span>
+  return `<li><a class="leg" data-tone="${grade.tone}" href="#g=${encodeURIComponent(leg.e)}" aria-label="${leg.by ? `${escapeHTML(crewMap(getCrew()).get(String(leg.by))?.name || "")}'s pick, ` : ""}${escapeHTML(label)}: ${escapeHTML(grade.text)}. Open game details">
+    ${byHTML(leg)}<span class="leg-pick">${escapeHTML(label)} ${odds}</span>
     <span class="leg-status">${chip}</span>
     <span class="score-row">${teamLine(game.away, game, leg)}${teamLine(game.home, game, leg)}</span>
     <span class="game-clock">${clockHTML(game)}${grade.sub ? `<span>${escapeHTML(grade.sub)}</span>` : ""}<span class="leg-detail-hint" style="margin-left:auto">Box score ›</span></span>
@@ -239,7 +252,12 @@ async function showTab(tab) {
   for (const btn of document.querySelectorAll(".tab")) btn.setAttribute("aria-selected", String(btn.dataset.tab === tab));
   $("ticket-view").hidden = tab !== "ticket";
   $("scout-view").hidden = tab !== "scout";
+  $("crew-view").hidden = tab !== "crew";
   try { localStorage.setItem(TAB_KEY, tab); } catch { /* fine */ }
+  if (tab === "crew" && !state.crew) {
+    state.crew = mountCrew($("crew-view"), { parlays: state.parlays, crew: getCrew(), resolveGame });
+    return;
+  }
   if (tab !== "scout" || state.scout) return;
   try {
     const { mountScout } = await import("./scout.js");
@@ -312,10 +330,12 @@ async function openBuilder(initial) {
     if (state.sheet?.el !== el) return;
     state.sheet.handle = mountBuilder(el, {
       initial,
+      crew: getCrew(),
       onCancel: leaveSheet,
       onSave: (parlay) => {
         saveLocal(parlay);
         state.parlays = mergeParlays(state.parlays.filter((p) => p.source === "log"), localParlays());
+        state.crew?.update({ parlays: state.parlays });
         leaveSheet();
         selectParlay(parlay.id);
         banner(`<span>Saved on this phone.</span><button class="btn" type="button" data-action="share">Share with the house</button>`);
@@ -407,6 +427,8 @@ async function settleFromSeason() {
     }
   }
   if (!games.size) return;
+  state.seasonGames = games;
+  state.crew?.update({ parlays: state.parlays, resolveGame });
   for (const p of state.parlays) {
     const { status } = gradeParlay(p.legs, games);
     if (status === "cashed" || status === "busted" || status === "push") cacheResult(p.id, status);
@@ -424,9 +446,9 @@ async function boot() {
   selectParlay(incoming?.id || state.parlays[0]?.id);
   if (incoming) announceShared(incoming);
   let tab = "ticket";
-  try { tab = localStorage.getItem(TAB_KEY) === "scout" ? "scout" : "ticket"; } catch { /* fine */ }
-  if (location.hash === "#scout") {
-    tab = "scout";
+  try { const saved = localStorage.getItem(TAB_KEY); tab = saved === "scout" || saved === "crew" ? saved : "ticket"; } catch { /* fine */ }
+  if (location.hash === "#scout" || location.hash === "#crew") {
+    tab = location.hash.slice(1);
     history.replaceState(null, "", location.pathname + location.search);
   }
   showTab(tab);

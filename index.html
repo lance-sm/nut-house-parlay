@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="css/detail.css">
   <link rel="stylesheet" href="css/builder.css">
   <link rel="stylesheet" href="css/scout.css">
+  <link rel="stylesheet" href="css/crew.css">
 </head>
 <body>
   <header class="band">
@@ -41,6 +42,7 @@
       </div>
       <div class="tabs" role="tablist" aria-label="Views">
         <button class="tab" id="tab-ticket" type="button" role="tab" aria-selected="true" aria-controls="ticket-view" data-tab="ticket">Ticket</button>
+        <button class="tab" id="tab-crew" type="button" role="tab" aria-selected="false" aria-controls="crew-view" data-tab="crew">Crew</button>
         <button class="tab" id="tab-scout" type="button" role="tab" aria-selected="false" aria-controls="scout-view" data-tab="scout">Scouting</button>
       </div>
     </div>
@@ -55,6 +57,7 @@
         <span>Scores: ESPN · times shown in your time zone</span>
       </div>
     </div>
+    <section id="crew-view" role="tabpanel" aria-labelledby="tab-crew" hidden></section>
     <section id="scout-view" role="tabpanel" aria-labelledby="tab-scout" hidden></section>
   </main>
 

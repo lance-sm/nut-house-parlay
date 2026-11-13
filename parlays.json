@@ -1,5 +1,13 @@
 {
   "season": 2026,
+  "crew": [
+    { "id": "micah", "name": "Micah", "photo": "img/crew/micah.jpg" },
+    { "id": "michael", "name": "Michael", "photo": "img/crew/michael.jpg" },
+    { "id": "noah", "name": "Noah", "photo": "img/crew/noah.jpg" },
+    { "id": "seth", "name": "Seth", "photo": "img/crew/seth.jpg" },
+    { "id": "lance", "name": "Lance", "photo": "img/crew/lance.jpg" },
+    { "id": "patrick", "name": "Patrick", "photo": "img/crew/patrick.jpg" }
+  ],
   "parlays": [
     {
       "id": "2026-w1",

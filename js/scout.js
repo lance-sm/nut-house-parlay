@@ -13,7 +13,8 @@
 
 import { fetchWeekSlate, fetchPredictor, logoHTML, escapeHTML as esc, kickoffText } from "./espn.js";
 import { gradeLeg, legLabel, fmtLine, fmtOdds, teamById } from "./grade.js";
-import { loadSeasonData } from "./store.js";
+import { loadSeasonData, getCrew } from "./store.js";
+import { crewMap, avatarHTML } from "./crew.js";
 import { slatePicks, legInsights, pitfalls, marketTrends, houseTrends, bestWorst, boardRecord } from "./insights.js";
 
 const WEEK_MIN = 1;
@@ -504,10 +505,12 @@ export function mountScout(root, { parlays = [], currentParlay = null, onOpenGam
     const team = leg.t !== "total" && game ? teamById(game, leg.s) : null;
     const badge = team ? logoHTML(team) : ouBadge(leg);
     const sub = [game ? scoreLine(game) : "", quip(kind, item, grade, final)].filter(Boolean).join(DOT);
+    const who = leg.by ? crewMap(getCrew()).get(String(leg.by)) : null;
+    const icon = who ? `<span class="sc-award-face">${avatarHTML(who, "xl")}<span class="sc-award-mini">${meta.icon}</span></span>` : `<span class="sc-award-icon">${meta.icon}</span>`;
     return `<button type="button" class="sc-award" data-kind="${kind}" data-act="open" data-e="${esc(leg.e)}" data-fk="award-${kind}">
-      <span class="sc-award-icon">${meta.icon}</span>
+      ${icon}
       <span class="sc-award-body">
-        <span class="sc-award-k">${esc(title)}</span>
+        <span class="sc-award-k">${esc(title)}${who ? ` · ${esc(who.name)}` : ""}</span>
         <span class="sc-award-pick">${badge}<span class="sc-award-label">${esc(label)}</span></span>
         <span class="sc-award-m num">${esc(grade.text || "")}</span>
         ${sub ? `<span class="sc-award-sub">${esc(sub)}</span>` : ""}

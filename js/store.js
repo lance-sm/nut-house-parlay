@@ -20,11 +20,18 @@ function writeLS(key, value) {
   try { localStorage.setItem(key, JSON.stringify(value)); } catch { /* private mode: fine */ }
 }
 
+let crewList = [];
+
+// The house: [{ id: "lance", name: "Lance", photo: "img/crew/lance.jpg" }] from parlays.json.
+// Legs point at a person with leg.by = their id.
+export function getCrew() { return crewList; }
+
 export async function loadSeasonLog() {
   try {
     const res = await fetch("parlays.json", { cache: "no-cache" });
     if (!res.ok) return [];
     const data = await res.json();
+    crewList = Array.isArray(data.crew) ? data.crew.filter((c) => c && c.id) : [];
     return (data.parlays || []).map((p) => ({ ...p, source: "log" }));
   } catch {
     return [];
@@ -93,7 +100,7 @@ function fromBase64Url(code) {
 export function encodeParlay(p) {
   const compact = {
     v: 1, i: p.id, m: p.name, d: p.date, s: p.stake ?? null, p: p.payout ?? null,
-    L: p.legs.map((l) => [l.e, l.t, l.s, l.l ?? null, l.o ?? null, l.n ?? null, l.g ?? null, l.k ?? null]),
+    L: p.legs.map((l) => [l.e, l.t, l.s, l.l ?? null, l.o ?? null, l.n ?? null, l.g ?? null, l.k ?? null, l.by ?? null]),
   };
   return toBase64Url(JSON.stringify(compact));
 }
@@ -103,7 +110,7 @@ export function decodeParlay(code) {
   if (c.v !== 1 || !Array.isArray(c.L)) throw new Error("Unrecognized parlay link");
   return {
     id: String(c.i), name: c.m || "Parlay", date: c.d || null, stake: c.s ?? null, payout: c.p ?? null,
-    legs: c.L.map(([e, t, s, l, o, n, g, k]) => ({ e: String(e), t, s: String(s), l, o, n, g, k })),
+    legs: c.L.map(([e, t, s, l, o, n, g, k, by]) => ({ e: String(e), t, s: String(s), l, o, n, g, k, ...(by ? { by: String(by) } : {}) })),
   };
 }
 

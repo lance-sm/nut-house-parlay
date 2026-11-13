@@ -313,6 +313,7 @@ function cleanLeg(x) {
     n: t === "total" ? null : (x?.n ?? null),
     g: String(x?.g ?? ""),
     k: x?.k ?? null,
+    ...(x?.by ? { by: String(x.by) } : {}),
   };
 }
 
@@ -343,7 +344,7 @@ const SEARCH_ICON = `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="fals
 
 /* ================================ mount ================================ */
 
-export function mountBuilder(root, { initial = null, onSave, onCancel } = {}) {
+export function mountBuilder(root, { initial = null, crew = [], onSave, onCancel } = {}) {
   const uid = `bld${Math.random().toString(36).slice(2, 7)}`;
   const ac = new AbortController();
   const on = (el, type, fn, opts) => el.addEventListener(type, fn, { ...(opts || {}), signal: ac.signal });
@@ -992,6 +993,11 @@ export function mountBuilder(root, { initial = null, onSave, onCancel } = {}) {
         <div class="b-leg-main">
           <div class="b-leg-pick">${esc(label)}</div>
           <div class="b-leg-sub"><span>${esc(leg.g)}</span>${when}</div>
+          ${crew.length ? `<label class="b-leg-by"><span class="eyebrow">Pick by</span>
+            <select data-field="by" data-i="${i}" aria-label="Who picked ${esc(label)}">
+              <option value="">Nobody yet</option>
+              ${crew.map((c) => `<option value="${esc(c.id)}"${c.id === leg.by ? " selected" : ""}>${esc(c.name)}</option>`).join("")}
+            </select></label>` : ""}
         </div>
         <span class="b-leg-odds num">${leg.o !== null && leg.o !== undefined ? esc(fmtOdds(leg.o)) : '<span class="b-noodds">no odds</span>'}</span>
         <button type="button" class="b-leg-x" data-act="remove" data-i="${i}" aria-label="Remove ${esc(label)}">×</button>
@@ -1121,7 +1127,12 @@ export function mountBuilder(root, { initial = null, onSave, onCancel } = {}) {
     const f = e.target.dataset?.field;
     if (!f) return;
     if (f === "q") onQuery(e.target.value);
-    else if (f === "line" || f === "odds") {
+    else if (f === "by") {
+      const leg = st.legs[Number(e.target.dataset.i)];
+      if (!leg) return;
+      if (e.target.value) leg.by = e.target.value; else delete leg.by;
+      st.dirty = true;
+    } else if (f === "line" || f === "odds") {
       if (!st.ed) return;
       st.ed[f] = e.target.value;
       setErr("");
