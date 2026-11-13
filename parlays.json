@@ -105,8 +105,8 @@
       "stake": 10,
       "payout": 467.95,
       "legs": [
-        { "e": "401856809", "t": "spread", "s": "252", "l": 10.5, "o": null, "n": "BYU", "g": "ND @ BYU", "k": "2026-10-17T23:30Z", "by": "patrick", "by": "micah" },
-        { "e": "401856809", "t": "total", "s": "u", "l": 46.5, "o": null, "n": null, "g": "ND @ BYU", "k": "2026-10-17T23:30Z" },
+        { "e": "401856809", "t": "spread", "s": "252", "l": 10.5, "o": null, "n": "BYU", "g": "ND @ BYU", "k": "2026-10-17T23:30Z", "by": "patrick" },
+        { "e": "401856809", "t": "total", "s": "u", "l": 46.5, "o": null, "n": null, "g": "ND @ BYU", "k": "2026-10-17T23:30Z", "by": "micah" },
         { "e": "401858491", "t": "spread", "s": "77", "l": -7.5, "o": -105, "n": "Northwestern", "g": "NU @ MSU", "k": "2026-10-17T16:00Z", "by": "lance" },
         { "e": "401856723", "t": "spread", "s": "333", "l": -7.5, "o": -110, "n": "Alabama", "g": "ALA @ TENN", "k": "2026-10-17T19:30Z", "by": "seth" },
         { "e": "401858494", "t": "spread", "s": "26", "l": -2.5, "o": -115, "n": "UCLA", "g": "WIS @ UCLA", "k": "2026-10-17T23:30Z", "by": "michael" },
