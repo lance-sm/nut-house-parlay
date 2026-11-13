@@ -4,12 +4,12 @@
 // sheet. Everything shown here (records, splits, streaks, solo kills) is counted from
 // those picks on load; only the bios' written takes are stored.
 
-import { avatarHTML } from "./crew.js?v=20261113a";
-import { escapeHTML as esc } from "./espn.js?v=20261113a";
+import { avatarHTML } from "./crew.js?v=20261113b";
+import { escapeHTML as esc } from "./espn.js?v=20261113b";
 
 export async function loadHistory() {
   try {
-    const res = await fetch("data/history.json?v=20261113a", { cache: "no-cache" });
+    const res = await fetch("data/history.json?v=20261113b", { cache: "no-cache" });
     return res.ok ? await res.json() : null;
   } catch {
     return null;

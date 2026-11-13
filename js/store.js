@@ -67,7 +67,14 @@ export function removeLocal(id) {
 // The season log wins for ids it has, unless this device has an edited copy.
 export function mergeParlays(log, local) {
   const byId = new Map(log.map((p) => [p.id, p]));
-  for (const p of local) byId.set(p.id, p);
+  for (const p of local) {
+    // A phone's copy saved before legs were tagged still picks up who picked what from the log.
+    const logged = byId.get(p.id);
+    const tags = new Map((logged?.legs || []).filter((l) => l.by).map((l) => [`${l.e}|${l.t}|${l.s}`, l.by]));
+    byId.set(p.id, tags.size
+      ? { ...p, legs: p.legs.map((l) => (l.by || !tags.has(`${l.e}|${l.t}|${l.s}`) ? l : { ...l, by: tags.get(`${l.e}|${l.t}|${l.s}`) })) }
+      : p);
+  }
   return [...byId.values()].sort((a, b) => (b.date || "").localeCompare(a.date || "") || b.id.localeCompare(a.id));
 }
 
