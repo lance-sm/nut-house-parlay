@@ -1,6 +1,6 @@
 {
  "source": "Bozo Picks sheet",
- "asOf": "2026-11-13",
+ "asOf": "2026-11-21",
  "years": [
   {
    "year": 1,
@@ -1536,6 +1536,51 @@
        "kind": "spread",
        "team": "Oklahoma State",
        "line": -6.5
+      }
+     }
+    },
+    {
+     "wk": "11",
+     "picks": {
+      "lance": {
+       "text": "Alabama -14",
+       "r": "W",
+       "kind": "spread",
+       "team": "Alabama",
+       "line": -14.0
+      },
+      "micah": {
+       "text": "Tennessee ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Tennessee"
+      },
+      "michael": {
+       "text": "Texas +4.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Texas",
+       "line": 4.5
+      },
+      "patrick": {
+       "text": "Texas Tech +3.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Texas Tech",
+       "line": 3.5
+      },
+      "noah": {
+       "text": "Utah ML",
+       "r": "W",
+       "kind": "ml",
+       "team": "Utah"
+      },
+      "seth": {
+       "text": "Oklahoma -2.5",
+       "r": "W",
+       "kind": "spread",
+       "team": "Oklahoma",
+       "line": -2.5
       }
      }
     }
